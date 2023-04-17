@@ -27,7 +27,7 @@ const DefaultLayout = (props: LayoutProps) => {
         <meta name="twitter:image:height" content="640" />
         <meta
           property="og:title"
-          content="AgentGPT: Autonomous AI in your browser 🤖"
+          content="TribeGPT: Autonomous AI in your browser 🤖"
         />
         <meta
           property="og:description"

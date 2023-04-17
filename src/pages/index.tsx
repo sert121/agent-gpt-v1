@@ -53,7 +53,9 @@ const Home: NextPage = () => {
   }, [agent]);
 
   const handleAddMessage = (message: Message) => {
-    if (message.type == "task") {
+
+
+     if (message.type == "task") {
       setTasks((tasks) => [...tasks, message.value]);
     }
     setMessages((prev) => [...prev, message]);
@@ -79,7 +81,7 @@ const Home: NextPage = () => {
 
   return (
     <DefaultLayout>
-      <HelpDialog
+      {/* <HelpDialog
         show={showHelpDialog}
         close={() => setShowHelpDialog(false)}
       />
@@ -90,12 +92,12 @@ const Home: NextPage = () => {
         setCustomModelName={setCustomModelName}
         show={showSettingsDialog}
         close={() => setShowSettingsDialog(false)}
-      />
+      /> */}
       <main className="flex h-screen w-screen flex-row">
-        <Drawer
+        {/* <Drawer
           showHelp={() => setShowHelpDialog(true)}
           showSettings={() => setShowSettingsDialog(true)}
-        />
+        /> */}
         <div
           id="content"
           className="z-10 flex h-screen w-full items-center justify-center p-2 px-2 sm:px-4 md:px-10"
@@ -110,19 +112,18 @@ const Home: NextPage = () => {
             >
               <div className="flex flex-row items-start shadow-2xl">
                 <span className="text-4xl font-bold text-[#C0C0C0] xs:text-5xl sm:text-6xl">
-                  Agent
+                  Tribe
                 </span>
                 <span className="text-4xl font-bold text-white xs:text-5xl sm:text-6xl">
                   GPT
                 </span>
-                <PopIn delay={0.5} className="sm:absolute sm:right-0 sm:top-2">
+                {/* <PopIn delay={0.5} className="sm:absolute  ml:4  sm:right-0 sm:top-2">
                   <Badge>Beta 🚀</Badge>
-                </PopIn>
+                </PopIn> */}
               </div>
               <div className="mt-1 text-center font-mono text-[0.7em] font-bold text-white">
                 <p>
-                  Assemble, configure, and deploy autonomous AI Agents in your
-                  browser.
+                 An AI assistant for the AI needs of your org.
                 </p>
               </div>
             </div>
@@ -143,7 +144,7 @@ const Home: NextPage = () => {
                   value={name}
                   disabled={agent != null}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="AgentGPT"
+                  placeholder="TribeGPT"
                 />
               </Expand>
               <Expand delay={1.3}>
