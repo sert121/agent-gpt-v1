@@ -78,13 +78,13 @@ const ChatWindow = ({ messages, children, className }: ChatWindowProps) => {
 
         {messages.length === 0 && (
           <>
-            {!!clientEnv.NEXT_PUBLIC_STRIPE_DONATION_URL && (
+            {/* {!!clientEnv.NEXT_PUBLIC_STRIPE_DONATION_URL && (
               <Expand delay={0.7} type="spring">
                 <DonationMessage
                   url={clientEnv.NEXT_PUBLIC_STRIPE_DONATION_URL}
                 />
               </Expand>
-            )}
+            )} */}
             <Expand delay={0.8} type="spring">
               <ChatMessage
                 message={{
@@ -204,21 +204,21 @@ const ChatMessage = ({ message }: { message: Message }) => {
       onMouseLeave={() => setShowCopy(false)}
       onClick={handleCopyClick}
     >
-      {message.type != "system" && (
+      {message.type == "action" && (
         // Avoid for system messages as they do not have an icon and will cause a weird space
         <>
           <div className="mr-2 inline-block h-[0.9em]">
             {getMessageIcon(message)}
           </div>
           <span className="mr-2 font-bold">{getMessagePrefix(message)}</span>
-        </>
-      )}
+        </>)
+      }
 
-      {message.type == "thinking" && (
+      {/* {message.type == "thinking" && (
         <span className="italic text-zinc-400">
           (Restart if this takes more than 30 seconds)
         </span>
-      )}
+      )} */}
 
       {message.type == "action" ? (
         <div className="prose ml-2 max-w-none">
