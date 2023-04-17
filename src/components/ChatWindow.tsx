@@ -197,6 +197,8 @@ const ChatMessage = ({ message }: { message: Message }) => {
       clearTimeout(timeoutId);
     };
   }, [copied]);
+
+  if (message.type == 'action'){
   return (
     <div
       className="mx-2 my-1 rounded-lg border-[2px] border-white/10 bg-white/20 p-1 font-mono text-sm hover:border-[#1E88E5]/40 sm:mx-4 sm:p-3 sm:text-base"
@@ -204,7 +206,7 @@ const ChatMessage = ({ message }: { message: Message }) => {
       onMouseLeave={() => setShowCopy(false)}
       onClick={handleCopyClick}
     >
-      {message.type == "action" && (
+      {message.type == "action" && message.info=='Executing:' && (
         // Avoid for system messages as they do not have an icon and will cause a weird space
         <>
           <div className="mr-2 inline-block h-[0.9em]">
@@ -249,7 +251,13 @@ const ChatMessage = ({ message }: { message: Message }) => {
         )}
       </div>
     </div>
-  );
+  );}
+  else{
+    return(
+      <></>
+    )
+  }
+
 };
 
 const DonationMessage = ({ url }: { url: string }) => {
